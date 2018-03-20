@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Discord4J-ModuleClass: net.d3add3d.d3be.modules.games.GamesModule
+
+
