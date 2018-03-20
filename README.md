@@ -1,4 +1,4 @@
-#How to run
+# How to run
 
 Open the project in IntelliJ IDEA and run the Main configuration, everything should compile and run.
 
