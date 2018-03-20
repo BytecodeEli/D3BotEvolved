@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/D3AIModule/D3AIModule.iml" filepath="$PROJECT_DIR$/D3AIModule/D3AIModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/D3BotEvolved.iml" filepath="$PROJECT_DIR$/D3BotEvolved.iml" />
+      <module fileurl="file://$PROJECT_DIR$/D3CoreModule/D3CoreModule.iml" filepath="$PROJECT_DIR$/D3CoreModule/D3CoreModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/D3GamesModule/D3GamesModule.iml" filepath="$PROJECT_DIR$/D3GamesModule/D3GamesModule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/D3ModModule/D3ModModule.iml" filepath="$PROJECT_DIR$/D3ModModule/D3ModModule.iml" />
+    </modules>
+  </component>
+</project>

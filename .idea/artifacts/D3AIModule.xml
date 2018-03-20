@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="D3AIModule">
+    <output-path>$PROJECT_DIR$/modules</output-path>
+    <root id="archive" name="D3AIModule.jar">
+      <element id="module-output" name="D3AIModule" />
+    </root>
+  </artifact>
+</component>
