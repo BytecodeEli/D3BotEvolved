@@ -7,6 +7,7 @@ import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.api.events.EventDispatcher;
 import sx.blah.discord.modules.IModule;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
@@ -20,6 +21,7 @@ public class CoreModule implements IModule {
 	private Utils utils;
 	public HashMap<String, Object> defaults = new HashMap<>();
 	private Nitrite db;
+	public Color botDefColor = new Color(0,255,255);
 
 	@Override
 	public boolean enable(IDiscordClient iDiscordClient) {

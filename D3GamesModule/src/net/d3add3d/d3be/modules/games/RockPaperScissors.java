@@ -6,28 +6,9 @@ import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedE
 import sx.blah.discord.handle.impl.obj.Embed;
 import sx.blah.discord.modules.IModule;
 
+import java.awt.*;
 import java.util.Random;
 
-/**
- * Project D3BotEvolved
- * Package net.d3add3d.d3be.modules.games
- * Created by D3add3d on 20. 12. 2017.
- * <p>
- * Copyright (C) 2017 D3add3d
- * <p>
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * <p>
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * <p>
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 public class RockPaperScissors implements ICommandExecutor {
 
 	private CoreModule core;
@@ -64,12 +45,12 @@ public class RockPaperScissors implements ICommandExecutor {
 					embedField1 = new Embed.EmbedField("Result", Character.toUpperCase(translateChoice(botChoice).charAt(0)) + translateChoice(botChoice).substring(1) + " cut " + translateChoice(userChoice) + ", I win!", true);
 				} else {
 					embedField1 = new Embed.EmbedField("Error", "Something went wrong, please contact the developer.", true);
-					return core.getUtils().sendEmbed(event.getChannel(), "Rock Paper Scissors", owner.getName(), true, embedField1);
+					return core.getUtils().sendEmbed(event.getChannel(), "Rock Paper Scissors", owner.getName(), new Color(255,0,0), embedField1);
 				}
 			}
-			return core.getUtils().sendEmbed(event.getChannel(), "Rock Paper Scissors", owner.getName(), false, embedField1);
+			return core.getUtils().sendEmbed(event.getChannel(), "Rock Paper Scissors", owner.getName(), core.botDefColor, embedField1);
 		}
-		return core.getUtils().sendEmbed(event.getChannel(), "Rock Paper Scissors", owner.getName(), false, new Embed.EmbedField("Warning", "Your input is invalid!", true));
+		return core.getUtils().sendEmbed(event.getChannel(), "Rock Paper Scissors", owner.getName(), core.botDefColor, new Embed.EmbedField("Warning", "Your input is invalid!", true));
 	}
 
 	private int translateChoice(String input) {
