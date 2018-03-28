@@ -10,7 +10,9 @@ import sx.blah.discord.util.EmbedBuilder;
 import sx.blah.discord.util.MessageBuilder;
 import sx.blah.discord.util.PermissionUtils;
 
+import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Utils {
 
@@ -20,44 +22,16 @@ public class Utils {
 		this.client = client;
 	}
 
-	public boolean sendEmbed(IChannel chan, String funcName, String moduleName, boolean isError, IEmbed.IEmbedField... fields) {
-		if(PermissionUtils.hasPermissions(chan, this.client.getOurUser(), Permissions.SEND_MESSAGES)) {
-			EmbedBuilder embedBuilder = new EmbedBuilder();
-			embedBuilder.withAuthorName(funcName);
-			if(isError) {
-				embedBuilder.withColor(255,0,0);
-			} else {
-				embedBuilder.withColor(0,255,255);
-			}
-			for(IEmbed.IEmbedField field : fields) {
-				embedBuilder.appendField(field);
-			}
-			embedBuilder.withFooterText(moduleName + " Module");
-			MessageBuilder messageBuilder = new MessageBuilder(this.client);
-			messageBuilder.withChannel(chan);
-			messageBuilder.withEmbed(embedBuilder.build());
-			try {
-				messageBuilder.send();
-			} catch(Exception e) {
-				e.printStackTrace();
-				return false;
-			}
-			return true;
-
-		} else {
-			return false;
-		}
+	public boolean sendEmbed(IChannel chan, String funcName, String moduleName, Color color, Embed.EmbedField... fields) {
+		ArrayList<Embed.EmbedField> temp = new ArrayList<>(Arrays.asList(fields));
+		return sendEmbed(chan, funcName, moduleName, color, temp);
 	}
 
-	public boolean sendEmbed(IChannel chan, String funcName, String moduleName, boolean isError, ArrayList<Embed.EmbedField> embeds) {
+	public boolean sendEmbed(IChannel chan, String funcName, String moduleName, Color color, ArrayList<Embed.EmbedField> embeds) {
 		if(PermissionUtils.hasPermissions(chan, this.client.getOurUser(), Permissions.SEND_MESSAGES)) {
 			EmbedBuilder embedBuilder = new EmbedBuilder();
 			embedBuilder.withAuthorName(funcName);
-			if(isError) {
-				embedBuilder.withColor(255,0,0);
-			} else {
-				embedBuilder.withColor(0,255,255);
-			}
+			embedBuilder.withColor(color);
 			embeds.forEach(embedBuilder::appendField);
 			embedBuilder.withFooterText(moduleName + " Module");
 			MessageBuilder messageBuilder = new MessageBuilder(this.client);

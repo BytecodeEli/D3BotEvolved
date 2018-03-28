@@ -5,6 +5,7 @@ import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedE
 import sx.blah.discord.handle.impl.obj.Embed;
 import sx.blah.discord.handle.obj.IGuild;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class ModuleHandler {
@@ -67,7 +68,7 @@ public class ModuleHandler {
 			StringBuilder bldr = new StringBuilder();
 			modules.forEach(m -> bldr.append(m.getName()).append(", "));
 			embeds.add(2, new Embed.EmbedField("Loaded Modules", bldr.toString().substring(0, bldr.length() > 2 ? bldr.length()-2 : bldr.length()).length() > 0 ? bldr.toString().substring(0, bldr.length() > 2 ? bldr.length()-2 : bldr.length()) : "None", true));
-			core.getUtils().sendEmbed(msgE.getChannel(), "Help", core.getName(), false, embeds);
+			core.getUtils().sendEmbed(msgE.getChannel(), "Help", core.getName(), core.botDefColor, embeds);
 		}
 	}
 
@@ -88,7 +89,7 @@ public class ModuleHandler {
 			}
 			embeds.add(new Embed.EmbedField("modules", "```" + modulesList.toString().substring(0, modulesList.length()-2) + "```", false));
 			embeds.add(new Embed.EmbedField("guilds", "```" + guildsList.toString().substring(0, guildsList.length()-2) + "```", false));
-			core.getUtils().sendEmbed(msgE.getChannel(), "Debug info", core.getName(), true, embeds);
+			core.getUtils().sendEmbed(msgE.getChannel(), "Debug info", core.getName(), new Color(0,0,255), embeds);
 		}
 	}
 

@@ -7,28 +7,9 @@ import sx.blah.discord.handle.impl.obj.Embed;
 import sx.blah.discord.handle.obj.IEmbed;
 import sx.blah.discord.modules.IModule;
 
+import java.awt.*;
 import java.util.Random;
 
-/**
- * Project D3BotEvolved
- * Package net.d3add3d.d3be.modules.games
- * Created by D3add3d on 22. 1. 2018.
- * <p>
- * Copyright (C) 2018 D3add3d
- * <p>
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * <p>
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * <p>
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
 public class CoinFlip implements ICommandExecutor {
 
 	private CoreModule core;
@@ -43,12 +24,12 @@ public class CoinFlip implements ICommandExecutor {
 	public boolean execute(MessageReceivedEvent event) {
 		Random rng = new Random();
 		boolean result = rng.nextBoolean();
-		IEmbed.IEmbedField embedField;
+		Embed.EmbedField embedField;
 		if(result) {
 			embedField = new Embed.EmbedField("Result", "Heads", true);
 		} else {
 			embedField = new Embed.EmbedField("Result", "Tails", true);
 		}
-		return core.getUtils().sendEmbed(event.getChannel(), "Coin Flip", owner.getName(), false, embedField);
+		return core.getUtils().sendEmbed(event.getChannel(), "Coin Flip", owner.getName(), core.botDefColor, embedField);
 	}
 }
